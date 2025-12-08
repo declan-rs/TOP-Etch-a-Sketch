@@ -1,5 +1,9 @@
 const container = document.querySelector("#container");
 
+function colourCell() {
+    this.classList.add("coloured");
+}
+
 // Create grid
 for(i = 0; i < 16; i++) {
     let row = document.createElement("div");
@@ -10,5 +14,6 @@ for(i = 0; i < 16; i++) {
         let cell = document.createElement("div");
         cell.className = "cell";
         row.appendChild(cell);
+        cell.addEventListener('mouseover', colourCell);
     }
 }

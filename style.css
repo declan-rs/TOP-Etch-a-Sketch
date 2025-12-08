@@ -22,3 +22,7 @@ body {
     border: solid 1px;
     flex: 1;
 }
+
+.coloured.cell {
+    background-color: darkslategrey;
+}
