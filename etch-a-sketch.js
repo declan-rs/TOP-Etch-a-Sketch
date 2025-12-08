@@ -1,4 +1,9 @@
+// Elements
 const container = document.querySelector("#container");
+const resetButton = document.getElementById("resetButton");
+const sizeSlider = document.getElementById("sizeSlider");
+const sizeValue = document.getElementById("sizeValue");
+
 // Create first grid with default 16x16
 createNewGrid(16);
 
@@ -7,22 +12,14 @@ function colourCell() {
 }
 
 function reset() {
-    let newSize = prompt("What size do you want the grid? (max 100)");
-    if(!Number.isInteger(+newSize)) {
-        reset();
-        return;
-    } else if(newSize.trim(" ") === "") {
-        reset();
-        return;
-    }else if(newSize > 100) {
-        newSize = 100;
-    }
+    let newSize = document.getElementById("sizeSlider").value;
 
     removeGrid();
     createNewGrid(newSize);
 }
 
-document.getElementById('reset').addEventListener('click', reset);
+resetButton.addEventListener("click", reset);
+sizeSlider.addEventListener("input", () => sizeValue.textContent = sizeSlider.value + "x" + sizeSlider.value);
 
 function removeGrid() {
     while(container.lastChild) {
@@ -40,7 +37,7 @@ function createNewGrid(size) {
             let cell = document.createElement("div");
             cell.className = "cell";
             row.appendChild(cell);
-            cell.addEventListener('mouseover', colourCell);
+            cell.addEventListener("mouseover", colourCell);
         }
     }
 }
