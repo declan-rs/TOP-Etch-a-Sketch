@@ -5,22 +5,31 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#settings {
+#game-board {
     display: flex;
 }
 
-#sizeValue {
+/* Settings */
+
+#settings {
+    display: flex;
+    flex-direction: column;
+}
+
+#size-value {
     margin: 0;
     text-align: center;
 }
 
-#resetButton {
+#reset-button {
     border-radius: 5px;
     margin: 10px;
     height: 30px;
 }
 
-#container {
+/* Grid */
+
+#grid {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -34,11 +43,5 @@ body {
 }
 
 .cell {
-    background-color: lightgray;
-    /* border: solid 0.01px; */
     flex: 1;
-}
-
-.coloured.cell {
-    background-color: darkslategrey;
 }

@@ -8,14 +8,22 @@
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
-    <div id = "settings">
-        <div>
-            <input id="sizeSlider" type="range" min="1" max="100">
-            <p id="sizeValue">10x10</p>
+    <div id="game-board">
+        <div id = "settings">
+            <div>
+                <input id="size-slider" type="range" min="1" max="100">
+                <p id="size-value">10x10</p>
+            </div>
+            <div id="mode-selection">
+                <h5>Mode</h5>
+                <button id="block-button">Block</button>
+                <button id="darkening-button">Darkening</button>
+                <button id="rainbow-button">Rainbow</button>
+            </div>
+            <button id="reset-button">Reset</button>
         </div>
-        <button id="resetButton">Reset</button>
+        <div id="grid"></div>
     </div>
-    <div id="container"></div>
 
     <script src="etch-a-sketch.js"></script>
 </body>
