@@ -11,7 +11,7 @@ const sizeValue = document.getElementById("size-value");
 let mode = "block";
 
 // Create first grid with default 16x16
-createNewGrid(10);
+createNewGrid(50);
 
 function colourCell() {
     if(mode === "darkening") {
@@ -25,6 +25,12 @@ function colourCell() {
             // Already coloured, increase opacity
             this.style.opacity = curOpacity + 0.1;
         }
+    } else if(mode === "rainbow") {
+        let randR = Math.floor(Math.random() * 256);
+        let randG = Math.floor(Math.random() * 256);
+        let randB = Math.floor(Math.random() * 256);
+        this.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`;
+
     } else {
         this.style.backgroundColor = "black";
     }
@@ -48,8 +54,14 @@ function changeDarkeningMode() {
     reset();
 }
 
+function changeRainbowMode() {
+    mode = "rainbow";
+    reset();
+}
+
 blockButton.addEventListener("click", changeBlockMode);
 darkeningButton.addEventListener("click", changeDarkeningMode);
+rainbowButton.addEventListener("click", changeRainbowMode);
 resetButton.addEventListener("click", reset);
 sizeSlider.addEventListener("input", () => sizeValue.textContent = sizeSlider.value + "x" + sizeSlider.value);
 
