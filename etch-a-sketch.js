@@ -3,6 +3,7 @@ const grid = document.getElementById("grid");
 const blockButton = document.getElementById("block-button");
 const darkeningButton = document.getElementById("darkening-button");
 const rainbowButton = document.getElementById("rainbow-button");
+const colourSelection = document.getElementById("colour-selection");
 const resetButton = document.getElementById("reset-button");
 const sizeSlider = document.getElementById("size-slider");
 const sizeValue = document.getElementById("size-value");
@@ -35,6 +36,7 @@ function colourCell() {
 
     } else {
         this.style.backgroundColor = colour;
+        this.style.opacity = 1;
     }
     this.classList.add("coloured");
 }
@@ -48,18 +50,17 @@ function reset() {
 
 function changeBlockMode() {
     mode = "block";
-    reset();
+    colourSelection.style.display = 'block';
 }
 
 function changeDarkeningMode() {
     mode = "darkening";
-    reset();
+    colourSelection.style.display = 'block';
 }
 
 function changeRainbowMode() {
     mode = "rainbow";
-    // TODO: remove colour selection
-    reset();
+    colourSelection.style.display = 'none';
 }
 
 blockButton.addEventListener("click", changeBlockMode);
