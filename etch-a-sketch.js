@@ -18,25 +18,33 @@ createNewGrid(50);
 // ==================== BUTTONS ====================
 function colourCell() {
     if(mode === "darkening") {
-        let curOpacity = parseFloat(this.style.opacity);
+        let curOpacity = parseFloat(this.style.opacity) || 0;
+
         if(!this.classList.contains("coloured")) {
             // First time coloured
-            
             this.style.backgroundColor = colour;
             this.style.opacity = 0.1;
-        } else if (curOpacity < 1){
+            this.dataset.colour = colour;
+        } else if (this.dataset.colour != colour){
+            // Drawing different colour
+            this.style.backgroundColor = colour;
+            this.style.opacity = 0.1;
+            this.dataset.colour = colour;
+        } else if(curOpacity < 1) {
             // Already coloured, increase opacity
             this.style.opacity = curOpacity + 0.1;
+            this.dataset.colour = colour;
         }
     } else if(mode === "rainbow") {
         let randR = Math.floor(Math.random() * 256);
         let randG = Math.floor(Math.random() * 256);
         let randB = Math.floor(Math.random() * 256);
         this.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`;
-
+        this.dataset.colour = `rgb(${randR}, ${randG}, ${randB})`;
     } else {
         this.style.backgroundColor = colour;
         this.style.opacity = 1;
+        this.dataset.colour = colour;
     }
     this.classList.add("coloured");
 }
