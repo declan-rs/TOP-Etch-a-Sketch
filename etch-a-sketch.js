@@ -9,17 +9,19 @@ const sizeValue = document.getElementById("size-value");
 
 // Settings
 let mode = "block";
+let colour = "black";
 
 // Create first grid with default 16x16
 createNewGrid(50);
 
+// ==================== BUTTONS ====================
 function colourCell() {
     if(mode === "darkening") {
         let curOpacity = parseFloat(this.style.opacity);
         if(!this.classList.contains("coloured")) {
             // First time coloured
             
-            this.style.backgroundColor = "black";
+            this.style.backgroundColor = colour;
             this.style.opacity = 0.1;
         } else if (curOpacity < 1){
             // Already coloured, increase opacity
@@ -32,7 +34,7 @@ function colourCell() {
         this.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`;
 
     } else {
-        this.style.backgroundColor = "black";
+        this.style.backgroundColor = colour;
     }
     this.classList.add("coloured");
 }
@@ -56,6 +58,7 @@ function changeDarkeningMode() {
 
 function changeRainbowMode() {
     mode = "rainbow";
+    // TODO: remove colour selection
     reset();
 }
 
@@ -64,8 +67,21 @@ darkeningButton.addEventListener("click", changeDarkeningMode);
 rainbowButton.addEventListener("click", changeRainbowMode);
 resetButton.addEventListener("click", reset);
 sizeSlider.addEventListener("input", () => sizeValue.textContent = sizeSlider.value + "x" + sizeSlider.value);
+document.getElementById("colour1").addEventListener("click", () => colour = "#9e0142");
+document.getElementById("colour2").addEventListener("click", () => colour = "#d53e4f");
+document.getElementById("colour3").addEventListener("click", () => colour = "#f46d43");
+document.getElementById("colour4").addEventListener("click", () => colour = "#fdae61");
+document.getElementById("colour5").addEventListener("click", () => colour = "#fee08b");
+document.getElementById("colour6").addEventListener("click", () => colour = "#e6f598");
+document.getElementById("colour7").addEventListener("click", () => colour = "#abdda4");
+document.getElementById("colour8").addEventListener("click", () => colour = "#66c2a5");
+document.getElementById("colour9").addEventListener("click", () => colour = "#3288bd");
+document.getElementById("colour10").addEventListener("click", () => colour = "#5e4fa2");
+document.getElementById("colour-white").addEventListener("click", () => colour = "white");
+document.getElementById("colour-black").addEventListener("click", () => colour = "black");
 
 
+// ==================== HELPERS ====================
 function removeGrid() {
     while(grid.lastChild) {
         grid.removeChild(grid.lastChild);

@@ -27,6 +27,63 @@ body {
     height: 30px;
 }
 
+.colour-row {
+    display: flex;
+    flex: 1;
+}
+
+.colour-button {
+    height: 20px;
+    width: 20px;
+    padding: 0px;
+    border: solid 1px;
+    border-radius: 5px;
+}
+
+#colour1 {
+    background-color: #9e0142;
+}
+
+#colour2 {
+    background-color: #d53e4f;
+}
+
+#colour3 {
+    background-color: #f46d43;
+}
+
+#colour4 {
+    background-color: #fdae61;
+}
+
+#colour5 {
+    background-color: #fee08b;
+}
+
+#colour6 {
+    background-color: #e6f598;
+}
+
+#colour7 {
+    background-color: #abdda4;
+}
+
+#colour8 {
+    background-color: #66c2a5;
+}
+
+#colour9 {
+    background-color: #3288bd;
+}
+
+#colour10 {
+    background-color: #5e4fa2;
+}
+
+#colour-black {
+    background-color: black;
+}
+
 /* Grid */
 
 #grid {
